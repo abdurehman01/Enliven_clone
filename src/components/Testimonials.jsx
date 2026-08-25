@@ -58,10 +58,9 @@ export default function Testimonials() {
         {/* Carousel Spotlight Card */}
         <div style={{ maxWidth: '920px', margin: '0 auto' }}>
           <div 
-            className="card-editorial"
+            className="card-editorial p-6 sm:p-12"
             style={{
               borderRadius: 'var(--radius-lg)',
-              padding: '3.5rem 3rem',
               position: 'relative',
               background: '#ffffff',
               boxShadow: '0 25px 50px -15px rgba(76, 29, 149, 0.08)'

@@ -109,13 +109,13 @@ export default function Services({ onSelectService }) {
         </div>
 
         {/* Services Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))', gap: '2.25rem' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {filtered.map((service) => (
             <div 
               key={service.id} 
               className="card-editorial"
               style={{
-                padding: '2.5rem',
+                padding: '2rem 1.75rem',
                 display: 'flex',
                 flexDirection: 'column',
                 justify: 'space-between'

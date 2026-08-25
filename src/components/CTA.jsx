@@ -21,13 +21,9 @@ export default function CTA({ onOpenContact }) {
       <div className="container">
         
         <div 
-          className="card-purple-deep"
+          className="card-purple-deep p-8 sm:p-16 text-center relative overflow-hidden"
           style={{
             borderRadius: 'var(--radius-lg)',
-            padding: '5rem 3rem',
-            position: 'relative',
-            overflow: 'hidden',
-            textAlign: 'center',
             boxShadow: '0 30px 60px -15px rgba(46, 16, 101, 0.4)'
           }}
         >
@@ -50,12 +46,12 @@ export default function CTA({ onOpenContact }) {
               <span>Transform Your Digital Presence</span>
             </div>
 
-            <h2 style={{ fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)', fontWeight: 800, lineHeight: 1.12, marginBottom: '1.5rem', color: '#ffffff' }}>
+            <h2 style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.8rem)', fontWeight: 800, lineHeight: 1.12, marginBottom: '1.5rem', color: '#ffffff' }}>
               Ready to Ship a Flagship <br />
               <span className="text-gradient-lavender">Digital Product?</span>
             </h2>
 
-            <p style={{ fontSize: '1.2rem', color: '#e9d5ff', marginBottom: '2.75rem', lineHeight: 1.65 }}>
+            <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', color: '#e9d5ff', marginBottom: '2.75rem', lineHeight: 1.65 }}>
               Partner with Enliven to design, engineer, and scale a world-class digital asset that commands your market category.
             </p>
 
@@ -92,7 +88,7 @@ export default function CTA({ onOpenContact }) {
               </button>
             </form>
 
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', fontSize: '0.9rem', color: '#c4b5fd' }}>
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-8 text-sm" style={{ color: '#c4b5fd' }}>
               <span>✓ Free 30-Min Tech Consultation</span>
               <span>✓ Response within 24h</span>
               <span>✓ Mutual NDAs</span>

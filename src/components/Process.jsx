@@ -54,13 +54,13 @@ export default function Process({ onOpenContact }) {
         </div>
 
         {/* 4 Process Timeline Cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: '2rem', position: 'relative' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8" style={{ position: 'relative' }}>
           {steps.map((step, idx) => (
             <div 
               key={idx}
               className="card-editorial"
               style={{
-                padding: '2.5rem 2rem',
+                padding: '2rem 1.75rem',
                 display: 'flex',
                 flexDirection: 'column',
                 justify: 'space-between',

@@ -54,9 +54,9 @@ export default function WhyUs({ onOpenContact }) {
         </div>
 
         {/* 4 Large Editorial Cards Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', marginBottom: '4rem' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-12 sm:mb-16">
           {values.map((v, i) => (
-            <div key={i} className="card-editorial" style={{ padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div key={i} className="card-editorial" style={{ padding: '2rem 1.75rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               
               <div>
                 {/* Icon Container */}
@@ -102,7 +102,7 @@ export default function WhyUs({ onOpenContact }) {
         </div>
 
         {/* Callout Footer */}
-        <div style={{ textAlignment: 'center', display: 'flex', justifyContent: 'center' }}>
+        <div style={{ textAlign: 'center', display: 'flex', justifyContent: 'center' }}>
           <button onClick={onOpenContact} className="btn btn-purple" style={{ padding: '1rem 2.25rem' }}>
             <span>Start Your Transformation</span>
             <ArrowUpRight size={18} />

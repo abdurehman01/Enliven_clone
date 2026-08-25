@@ -108,7 +108,7 @@ export default function CaseStudies({ onSelectProject }) {
         </div>
 
         {/* Case Studies Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))', gap: '2.5rem' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
           {filtered.map((project) => (
             <div 
               key={project.id}

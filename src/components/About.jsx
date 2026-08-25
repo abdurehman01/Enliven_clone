@@ -58,7 +58,7 @@ export default function About() {
         </div>
 
         {/* Tab Selection */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '3.5rem' }}>
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-10 sm:mb-14">
           {[
             { id: 'story', label: 'Our Story & Mission', icon: <Target size={16} /> },
             { id: 'values', label: 'Core Philosophy', icon: <Sparkles size={16} /> },
@@ -92,7 +92,7 @@ export default function About() {
 
         {/* Tab 1: Our Story */}
         {activeTab === 'story' && (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="glass-panel" style={{ borderRadius: '24px', padding: '2.5rem' }}>
               <div className="badge-glow" style={{ marginBottom: '1.25rem' }}>
                 <Globe size={14} color="#818cf8" />
@@ -109,7 +109,7 @@ export default function About() {
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div className="glass-card" style={{ padding: '1.75rem', textAlign: 'center' }}>
                 <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#818cf8', fontFamily: 'var(--font-heading)' }}>5+</div>
                 <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>Years of Industry Leadership</div>
@@ -135,7 +135,7 @@ export default function About() {
 
         {/* Tab 2: Core Philosophy */}
         {activeTab === 'values' && (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2rem' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {values.map((v, i) => (
               <div key={i} className="glass-card" style={{ padding: '2rem' }}>
                 <div style={{
@@ -161,7 +161,7 @@ export default function About() {
         {/* Tab 3: Tech Stack */}
         {activeTab === 'tech' && (
           <div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '1.25rem' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
               {techStack.map((tech, i) => (
                 <div 
                   key={i} 

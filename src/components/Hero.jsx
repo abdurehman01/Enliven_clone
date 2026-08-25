@@ -39,7 +39,7 @@ export default function Hero({ onExploreWork, onOpenContact }) {
       }}
     >
       <div className="container">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
           {/* Hero Content Left */}
           <div>
@@ -48,16 +48,16 @@ export default function Hero({ onExploreWork, onOpenContact }) {
               <span>Next-Gen Digital Experience Studio</span>
             </div>
 
-            <h1 ref={titleRef} style={{ fontSize: '2.2rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1.75rem', color: 'var(--purple-deep)' }}>
+            <h1 ref={titleRef} style={{ fontSize: 'clamp(2.3rem, 5vw, 3.4rem)', fontWeight: 800, lineHeight: 1.1, marginBottom: '1.75rem', color: 'var(--purple-deep)' }}>
               Digital Products <br />
               Crafted with <span className="text-gradient-purple">Purpose & Precision.</span>
             </h1>
 
-            <p ref={descRef} style={{ fontSize: '1.2rem', color: 'var(--text-body-muted)', marginBottom: '2.5rem', maxWidth: '580px', lineHeight: 1.65 }}>
+            <p ref={descRef} style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', color: 'var(--text-body-muted)', marginBottom: '2.5rem', maxWidth: '580px', lineHeight: 1.65 }}>
               Enliven bridges editorial design elegance with high-speed full-stack engineering. We partner with visionaries to build web platforms that command authority.
             </p>
 
-            <div ref={btnRef} style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', marginBottom: '3.5rem' }}>
+            <div ref={btnRef} className="flex flex-col sm:flex-row gap-4 mb-10 sm:mb-14">
               <a href="#case-studies" onClick={onExploreWork} className="btn btn-purple">
                 <span>Explore Selected Work</span>
                 <ArrowRight size={18} />
@@ -70,7 +70,7 @@ export default function Hero({ onExploreWork, onOpenContact }) {
             </div>
 
             {/* Editorial Quick Stats */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', paddingTop: '2.25rem', borderTop: '1px solid var(--lavender-border)' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-[var(--lavender-border)]">
               <div>
                 <div style={{ fontSize: '2.2rem', fontWeight: 800, color: 'var(--purple-deep)', fontFamily: 'var(--font-editorial)' }}>150+</div>
                 <div style={{ fontSize: '0.85rem', color: 'var(--text-body-muted)', fontWeight: 500 }}>Global Projects Delivered</div>
@@ -87,7 +87,7 @@ export default function Hero({ onExploreWork, onOpenContact }) {
           </div>
 
           {/* Hero Visual Right — Deep Purple & Subtle Lavender Card Stack */}
-          <div ref={cardRef} style={{ position: 'relative', paddingBottom: '4rem' }}>
+          <div ref={cardRef} className="relative pb-8 lg:pb-0">
 
             <div className="card-purple-deep" style={{ padding: '2.25rem', position: 'relative', overflow: 'hidden' }}>
 
@@ -149,8 +149,8 @@ export default function Hero({ onExploreWork, onOpenContact }) {
             {/* Outer Accent Badges */}
             <div style={{
               position: 'absolute',
-              top: '-20px',
-              right: '-15px',
+              top: '-15px',
+              right: '0px',
               background: '#ffffff',
               border: '1px solid var(--lavender-border)',
               padding: '0.75rem 1.25rem',

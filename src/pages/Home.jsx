@@ -95,12 +95,11 @@ export default function Home({ onNavigate, activePage = 'home' }) {
           onClick={() => setActiveModal(null)}
         >
           <div 
-            className="card-editorial"
+            className="card-editorial p-6 sm:p-10 max-h-[90vh] overflow-y-auto"
             style={{
               width: '100%',
               maxWidth: '680px',
               borderRadius: 'var(--radius-lg)',
-              padding: '3rem',
               position: 'relative',
               background: '#ffffff',
               boxShadow: '0 30px 60px rgba(46, 16, 101, 0.25)'
@@ -138,7 +137,7 @@ export default function Home({ onNavigate, activePage = 'home' }) {
                   Client: {activeModal.data.client} • Key Impact: {activeModal.data.impact}
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem', marginBottom: '1.75rem' }}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-6 sm:mb-7">
                   <div style={{ background: '#faf8ff', padding: '1.25rem', borderRadius: '14px', border: '1px solid var(--lavender-border)' }}>
                     <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#6d28d9', textTransform: 'uppercase', marginBottom: '0.4rem' }}>The Challenge</div>
                     <div style={{ fontSize: '0.9rem', color: 'var(--text-body)' }}>{activeModal.data.problem}</div>

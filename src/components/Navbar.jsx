@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { Sparkles, Menu, X, ArrowUpRight } from 'lucide-react';
+import { Sparkles, Menu, X, ArrowUpRight, ChevronDown } from 'lucide-react';
 
 export default function Navbar({ activePage = 'home', onNavigate, onOpenContact }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [mobileOpenDropdown, setMobileOpenDropdown] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -349,57 +350,137 @@ export default function Navbar({ activePage = 'home', onNavigate, onOpenContact 
             top: '100%',
             left: 0,
             right: 0,
+            maxHeight: 'calc(100vh - 80px)',
+            overflowY: 'auto',
             background: '#ffffff',
             borderBottom: '1px solid var(--lavender-border)',
-            padding: '1.75rem 1.5rem',
+            padding: '1.5rem 1.25rem',
             display: 'flex',
             flexDirection: 'column',
-            gap: '1.25rem',
+            gap: '0.75rem',
             boxShadow: '0 20px 40px rgba(46, 16, 101, 0.12)'
           }}
         >
-          {navLinks.map((link, idx) => (
-            <div key={idx}>
-              <a
-                href={link.href}
-                onClick={(e) => handleLinkClick(e, link)}
-                style={{
-                  color: 'var(--purple-deep)',
-                  fontWeight: 700,
-                  fontSize: '1.1rem',
-                  textDecoration: 'none',
-                  display: 'block',
-                  padding: '0.4rem 0',
-                }}
-              >
-                {link.name}
-              </a>
-              {link.subLinks && (
-                <div style={{ paddingLeft: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: '0.4rem' }}>
-                  {link.subLinks.map((sub, sidx) => (
-                    <a
-                      key={sidx}
-                      href={sub.href}
-                      onClick={(e) => handleLinkClick(e, { page: link.page, href: sub.href })}
+          {navLinks.map((link, idx) => {
+            const isDropdownOpen = mobileOpenDropdown === link.name;
+            return (
+              <div key={idx} style={{ borderBottom: '1px solid rgba(237, 233, 254, 0.6)', paddingBottom: '0.6rem' }}>
+                {link.subLinks ? (
+                  <button
+                    onClick={() => setMobileOpenDropdown(isDropdownOpen ? null : link.name)}
+                    style={{
+                      width: '100%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      background: 'none',
+                      border: 'none',
+                      color: isDropdownOpen ? '#6d28d9' : 'var(--purple-deep)',
+                      fontWeight: 700,
+                      fontSize: '1.05rem',
+                      padding: '0.4rem 0',
+                      cursor: 'pointer',
+                      textAlign: 'left'
+                    }}
+                  >
+                    <span>{link.name}</span>
+                    <ChevronDown
+                      size={18}
                       style={{
-                        color: 'var(--text-body)',
-                        fontSize: '0.95rem',
-                        textDecoration: 'none',
-                        fontWeight: '500'
+                        transform: isDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                        transition: 'transform 0.25s ease',
+                        color: '#7c3aed'
                       }}
-                    >
-                      - {sub.name}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+                    />
+                  </button>
+                ) : link.name === 'Home' ? (
+                  <NavLink
+                    to="/"
+                    end
+                    onClick={(e) => handleLinkClick(e, link)}
+                    style={{
+                      color: 'var(--purple-deep)',
+                      fontWeight: 700,
+                      fontSize: '1.05rem',
+                      textDecoration: 'none',
+                      display: 'block',
+                      padding: '0.4rem 0',
+                    }}
+                  >
+                    {link.name}
+                  </NavLink>
+                ) : link.name === 'Why Us' ? (
+                  <NavLink
+                    to="/why-enliven-digital"
+                    onClick={(e) => handleLinkClick(e, link)}
+                    style={{
+                      color: 'var(--purple-deep)',
+                      fontWeight: 700,
+                      fontSize: '1.05rem',
+                      textDecoration: 'none',
+                      display: 'block',
+                      padding: '0.4rem 0',
+                    }}
+                  >
+                    {link.name}
+                  </NavLink>
+                ) : (
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleLinkClick(e, link)}
+                    style={{
+                      color: 'var(--purple-deep)',
+                      fontWeight: 700,
+                      fontSize: '1.05rem',
+                      textDecoration: 'none',
+                      display: 'block',
+                      padding: '0.4rem 0',
+                    }}
+                  >
+                    {link.name}
+                  </a>
+                )}
+
+                {/* SubLinks Collapsible Dropdown */}
+                {link.subLinks && isDropdownOpen && (
+                  <div style={{
+                    paddingLeft: '0.75rem',
+                    paddingTop: '0.4rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.45rem',
+                    marginTop: '0.25rem',
+                    borderLeft: '2.5px solid #c4b5fd',
+                    marginLeft: '0.25rem'
+                  }}>
+                    {link.subLinks.map((sub, sidx) => (
+                      <a
+                        key={sidx}
+                        href={sub.href}
+                        onClick={(e) => handleLinkClick(e, { page: sub.page || link.page, href: sub.href })}
+                        style={{
+                          color: 'var(--text-body)',
+                          fontSize: '0.9rem',
+                          textDecoration: 'none',
+                          fontWeight: 600,
+                          padding: '0.35rem 0',
+                          lineHeight: 1.45,
+                          transition: 'color 0.2s ease'
+                        }}
+                      >
+                        {sub.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
 
           <button 
             onClick={() => { setMobileMenuOpen(false); onOpenContact(); }}
             className="btn btn-purple"
-            style={{ width: '100%', marginTop: '0.5rem' }}
+            style={{ width: '100%', marginTop: '0.75rem' }}
           >
             <span>Book Strategy Call</span>
             <ArrowUpRight size={18} />

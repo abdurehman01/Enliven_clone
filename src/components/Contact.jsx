@@ -31,7 +31,7 @@ export default function Contact() {
     <section id="contact" className="section" style={{ background: '#faf8ff' }}>
       <div className="container">
         
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))', gap: '4rem', alignItems: 'start' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           
           {/* Contact Left Info */}
           <div>
@@ -78,7 +78,7 @@ export default function Contact() {
           </div>
 
           {/* Contact Form Right */}
-          <div className="card-editorial" style={{ padding: '3rem 2.5rem' }}>
+          <div className="card-editorial p-6 sm:p-10">
             {submitted ? (
               <div style={{ textAlign: 'center', padding: '3rem 1rem' }}>
                 <div style={{
@@ -148,7 +148,7 @@ export default function Contact() {
                   />
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   <div>
                     <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 700, color: 'var(--purple-deep)', marginBottom: '0.5rem' }}>
                       Primary Capability

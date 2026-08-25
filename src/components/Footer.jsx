@@ -23,13 +23,7 @@ export default function Footer({ onNavigate }) {
       <div className="container">
         
         {/* Main Footer Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-          gap: '3.5rem',
-          paddingBottom: '4rem',
-          borderBottom: '1px solid rgba(196, 181, 253, 0.12)'
-        }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-14 pb-12 sm:pb-16 border-b border-[rgba(196,181,253,0.12)]">
           
           {/* Brand Info */}
           <div style={{ gridColumn: 'span 1' }}>
