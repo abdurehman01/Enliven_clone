@@ -76,7 +76,7 @@ export default function Results() {
   ];
 
   return (
-    <section ref={sectionRef} id="results" className="section" style={{ background: '#2e1065', color: '#ffffff' }}>
+    <section ref={sectionRef} id="results" className="section" style={{ background: '#2e1065', color: '#ffffff', overflow: 'hidden', position: 'relative' }}>
       
       {/* Background Soft Purple Glow */}
       <div style={{

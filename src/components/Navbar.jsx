@@ -20,6 +20,26 @@ export default function Navbar({ activePage = 'home', onNavigate, onOpenContact 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.height = '100vh';
+      document.documentElement.style.overflow = 'hidden';
+      document.documentElement.style.height = '100vh';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.height = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.height = '';
+    };
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { name: 'Home', page: 'home', href: '#home', to: '/' },
     { name: 'Why Us', page: 'why-us', href: '#why-us', to: '/why-enliven-digital' },
@@ -346,19 +366,24 @@ export default function Navbar({ activePage = 'home', onNavigate, onOpenContact 
       {mobileMenuOpen && (
         <div
           style={{
-            position: 'absolute',
-            top: '100%',
+            position: 'fixed',
+            top: scrolled ? '64px' : '76px',
             left: 0,
             right: 0,
-            maxHeight: 'calc(100vh - 80px)',
+            bottom: 0,
+            width: '100%',
+            height: scrolled ? 'calc(100vh - 64px)' : 'calc(100vh - 76px)',
             overflowY: 'auto',
+            overscrollBehavior: 'contain',
+            WebkitOverflowScrolling: 'touch',
             background: '#ffffff',
             borderBottom: '1px solid var(--lavender-border)',
-            padding: '1.5rem 1.25rem',
+            padding: '1.5rem 1.25rem 3rem 1.25rem',
             display: 'flex',
             flexDirection: 'column',
             gap: '0.75rem',
-            boxShadow: '0 20px 40px rgba(46, 16, 101, 0.12)'
+            boxShadow: '0 20px 40px rgba(46, 16, 101, 0.12)',
+            zIndex: 999
           }}
         >
           {navLinks.map((link, idx) => {

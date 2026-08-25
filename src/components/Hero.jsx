@@ -35,7 +35,8 @@ export default function Hero({ onExploreWork, onOpenContact }) {
         minHeight: '92vh',
         display: 'flex',
         alignItems: 'center',
-        background: 'radial-gradient(circle at 75% 20%, rgba(237, 233, 254, 0.6) 0%, rgba(255, 255, 255, 1) 60%)'
+        background: 'radial-gradient(circle at 75% 20%, rgba(237, 233, 254, 0.6) 0%, rgba(255, 255, 255, 1) 60%)',
+        overflow: 'hidden'
       }}
     >
       <div className="container">

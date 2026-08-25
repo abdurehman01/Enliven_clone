@@ -30,14 +30,14 @@ export default function LogoMarquee() {
   }, []);
 
   return (
-    <section style={{ background: '#faf8ff', borderTop: '1px solid var(--lavender-border)', borderBottom: '1px solid var(--lavender-border)', padding: '2.5rem 0', overflow: 'hidden' }}>
+    <section style={{ background: '#faf8ff', borderTop: '1px solid var(--lavender-border)', borderBottom: '1px solid var(--lavender-border)', padding: '2.5rem 0', overflow: 'hidden', maxWidth: '100vw' }}>
       <div style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
         <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
           TRUSTED BY INNOVATION LEADERS WORLDWIDE
         </span>
       </div>
 
-      <div style={{ display: 'flex', width: '200%', overflow: 'hidden' }}>
+      <div style={{ display: 'flex', width: '100%', overflow: 'hidden' }}>
         <div ref={marqueeRef} style={{ display: 'flex', gap: '3rem', whiteSpace: 'nowrap', willChange: 'transform' }}>
           {[...logos, ...logos, ...logos].map((logo, idx) => (
             <div
